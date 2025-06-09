@@ -20,12 +20,12 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center text-green-600">Create Your Account</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#f3f4f6' }}>
+      <div style={styles.form}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', color: '#16a34a' }}>Create Your Account</h2>
+        <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" style={{ display: 'block', textAlign: 'left', marginBottom: '0.5rem', fontWeight: '500' }}>
               Email Address
             </label>
             <input
@@ -35,11 +35,11 @@ const Register = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               required
-              className="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              style={styles.input}
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" style={{ display: 'block', textAlign: 'left', marginBottom: '0.5rem', fontWeight: '500' }}>
               Password
             </label>
             <input
@@ -49,19 +49,16 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
               required
-              className="mt-1 block w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+              style={styles.input}
             />
           </div>
-          <button
-            type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200"
-          >
+          <button type="submit" style={{ ...styles.button, backgroundColor: '#16a34a', marginTop: '1rem' }}>
             Register
           </button>
           <button
             type="button"
             onClick={() => navigate('/login')}
-            className="w-full border border-gray-300 py-2 rounded-lg hover:bg-gray-100 transition duration-200"
+            style={{ ...styles.button, backgroundColor: '#e5e7eb', color: '#111827', marginTop: '0.75rem' }}
           >
             Already have an account? Login
           </button>
@@ -69,6 +66,37 @@ const Register = () => {
       </div>
     </div>
   );
+};
+
+const styles = {
+  form: {
+    maxWidth: '400px',
+    width: '100%',
+    padding: '2rem',
+    borderRadius: '10px',
+    backgroundColor: '#ffffff',
+    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+  },
+  input: {
+    width: '100%',
+    padding: '0.75rem',
+    marginBottom: '1.25rem',
+    borderRadius: '8px',
+    border: '1px solid #d1d5db',
+    fontSize: '1rem',
+    outline: 'none',
+    boxSizing: 'border-box',
+  },
+  button: {
+    width: '100%',
+    padding: '0.75rem',
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    border: 'none',
+    borderRadius: '8px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  },
 };
 
 export default Register;

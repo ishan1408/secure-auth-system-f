@@ -1,9 +1,21 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const token = params.get('token');
+
+    if (token) {
+      localStorage.setItem('token', token);
+      toast.success('Logged in successfully!');
+      window.history.replaceState({}, '', '/dashboard');
+    }
+  }, [location.search]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -19,6 +31,7 @@ const Dashboard = () => {
     </div>
   );
 };
+
 
 const styles = {
   container: {
