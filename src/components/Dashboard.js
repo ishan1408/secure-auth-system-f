@@ -7,8 +7,8 @@ const Dashboard = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const token = params.get('token');
+  const params = new URLSearchParams(location.search);
+  const token = params.get('token');
 
     if (token) {
       localStorage.setItem('token', token);

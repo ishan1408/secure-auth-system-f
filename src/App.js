@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from './components/PrivateRoute';
+import OAuthRedirectHandler from './components/OAuthRedirectHandler';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
+        <Route path="/oauth-redirect" element={<OAuthRedirectHandler />} />
       </Routes>
     </Router>
   );
